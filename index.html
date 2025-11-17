@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boostify | Jasa Iklan & Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="shortcut icon" href="logo juga.png" type="image/png">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #cursor {
+            display: inline-block;
+            margin-left: 2px;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        @keyframes blink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        #cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        .typing-container {
+            white-space: nowrap;
+        }
+
+        @keyframes soft-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .soft-pulse {
+            animation: soft-pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 scroll-smooth" x-data="{ mobileMenuOpen: false, pricingType: 'meta' }">
+
+    <!-- ============ NAVBAR ============ -->
+    <nav x-data="{ scrolled: false, mobileMenuOpen: false }"
+        x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 10 })"
+        :class="scrolled ? 'backdrop-blur-lg bg-white/70 shadow-lg' : 'bg-white'"
+        class="sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <img src="logo juga.png" alt="" class="h-12 w-auto">
+                        <span class="text-2xl font-bold text-sky-600">Boostify</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#layanan"
+                        class="text-gray-700 hover:text-sky-600 transition-colors font-medium">Layanan</a>
+                    <a href="#portfolio"
+                        class="text-gray-700 hover:text-sky-600 transition-colors font-medium">Portofolio</a>
+                    <a href="#harga" class="text-gray-700 hover:text-sky-600 transition-colors font-medium">Harga</a>
+                    <a href="#kontak" class="text-gray-700 hover:text-sky-600 transition-colors font-medium">Kontak</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="https://wa.link/zjo1b2" target="_blank">
+                    <button
+                        class="group/button hidden md:block relative inline-flex items-center justify-center overflow-hidden rounded-md bg-sky-600 px-6 py-2 text-base font-semibold text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-sky-600/50 border border-white/20">
+                        <span class="text-lg">Konsultasi Via Whatsapp</span>
+                        <div
+                            class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
+                            <div class="relative h-full w-10 bg-white/20"></div>
+                        </div>
+                    </button>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-700 hover:text-sky-600">
+                    <!-- Icon Hamburger -->
+                    <i class="fa-solid fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+
+                    <!-- Icon Close -->
+                    <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenuOpen"></i>
+                </button>
+
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" class="md:hidden pb-4 space-y-2">
+                <a href="#layanan" class="block px-4 py-2 text-gray-700 hover:bg-sky-50 rounded">Layanan</a>
+                <a href="#portfolio" class="block px-4 py-2 text-gray-700 hover:bg-sky-50 rounded">Portofolio</a>
+                <a href="#harga" class="block px-4 py-2 text-gray-700 hover:bg-sky-50 rounded">Harga</a>
+                <a href="#kontak" class="block px-4 py-2 text-gray-700 hover:bg-sky-50 rounded">Kontak</a>
+                <a href="https://wa.link/zjo1b2" target="_blank">
+                    <button
+                        class="w-full mt-2 px-6 py-3 bg-sky-600 text-white rounded-lg font-semibold hover:bg-sky-600 transition-colors">
+                        Konsultasi Via Whatsapp
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ============ JUMBOTRON ============ -->
+    <section class="relative py-20 md:py-32 bg-cover bg-center bg-no-repeat"
+        style="background-image: url('/jumbo.png');">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
+                    <div class="typing-container text-blue-700 font-bold"
+                        style="font-family: Inter, system-ui, sans-serif; font-size: 1.25rem;">
+                        <span id="typed-text"></span><span id="cursor" aria-hidden="true">|</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+                        Bisnis naik kelas dengan Digital Marketing
+                    </h1>
+                    <p class="text-lg md:text-xl text-white mb-8">
+                        Kami menyediakan solusi lengkap untuk iklan Meta Ads dan pembuatan website yang akan membawa
+                        bisnis Anda ke level yang lebih serius.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#harga">
+                            <button
+                                class="group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-sky-600 px-6 py-2 text-base font-semibold text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-sky-600/50 border border-white/20">
+                                <span class="text-lg">Mulai sekarang</span>
+                                <div
+                                    class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
+                                    <div class="relative h-full w-10 bg-white/20"></div>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:block hidden">
+                    <div class="grid grid-cols-2 gap-4 text-white drop-shadow-lg">
+                        <div
+                            class="bg-sky-600 w-40 h-40 rounded-full p-1 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                            <p class="text-xl font-bold mb-1"><i class="fa-solid fa-users mr-1"></i>10+</p>
+                            <p class="text-lg font-bold">Klien Puas</p>
+                        </div>
+
+                        <div
+                            class="bg-sky-600 w-40 h-40 rounded-full p-1 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                            <p class="text-xl font-bold mb-1"><i class="fa-solid fa-headset mr-1"></i>24/7</p>
+                            <p class="text-lg font-bold">Support</p>
+                        </div>
+
+                        <div
+                            class="bg-sky-600 w-40 h-40 rounded-full p-1 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                            <p class="text-xl font-bold mb-1"><i class="fa-solid fa-briefcase mr-1"></i>3+</p>
+                            <p class="text-lg font-bold">Tahun</p>
+                        </div>
+
+                        <div
+                            class="bg-sky-600 w-40 h-40 rounded-full p-1 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                            <p class="text-xl font-bold mb-1"><i class="fa-solid fa-chart-line mr-1"></i>100%</p>
+                            <p class="text-lg font-bold">ROI</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 text-white drop-shadow-lg mt-10 md:hidden">
+                    <div
+                        class="bg-sky-600 w-24 h-24 rounded-full p-2 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                        <p class="text-lg font-bold mb-1"><i class="fa-solid fa-users mr-1"></i>10+</p>
+                        <p class="text-xs font-bold">Klien Puas</p>
+                    </div>
+                    <div
+                        class="bg-sky-600 w-24 h-24 rounded-full p-2 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                        <p class="text-lg font-bold mb-1"><i class="fa-solid fa-headset mr-1"></i>24/7</p>
+                        <p class="text-xs font-bold">Support</p>
+                    </div>
+                    <div
+                        class="bg-sky-600 w-24 h-24 rounded-full p-2 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                        <p class="text-lg font-bold mb-1"><i class="fa-solid fa-briefcase mr-1"></i>3+</p>
+                        <p class="text-xs font-bold">Tahun</p>
+                    </div>
+                    <div
+                        class="bg-sky-600 w-24 h-24 rounded-full p-2 flex flex-col items-center justify-center text-center mx-auto soft-pulse">
+                        <p class="text-lg font-bold mb-1"><i class="fa-solid fa-chart-line mr-1"></i>100%</p>
+                        <p class="text-xs font-bold">ROI</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Visual -->
+                <div class="order-1">
+                    <div
+                        class="bg-gradient-to-br from-sky-100 to-blue-100 rounded-2xl h-96 flex items-center justify-center">
+                        <div class="text-center rounded-full">
+                            <img src="tentang.png" alt="" class="rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="order-1 md:order-2">
+                    <h2 class="text-4xl md:text-5xl font-bold text-sky-600 mb-6">Tentang Kami</h2>
+                    <p class="text-gray-600 text-lg mb-6">
+                        Sesuai namanya, Boostify adalah sebuah layanan yang berdedikasi untuk mendorong dan meningkatkan
+                        penjualan UMKM lewat digital marketing via website dan iklan di platform Meta.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-6">
+                        Dengan pengalaman mengelola berbagai kampanye iklan dan mengembangkan berbagai jenis website
+                        seperti company profile sampai landing page,
+                        kami siap membuatkan untuk anda iklan atau website yang:
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-xl mt-1">✓</span>
+                            <div>
+                                <p class="font-semibold text-gray-900">Targetingnya Presisi</p>
+                                <p class="text-gray-600 text-sm">Jangkau audience yang tepat sesuai target market Anda
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-xl mt-1">✓</span>
+                            <div>
+                                <p class="font-semibold text-gray-900">Optimasinya Berkelanjutan</p>
+                                <p class="text-gray-600 text-sm">Monitoring & penyesuaian kampanye setiap hari</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-xl mt-1">✓</span>
+                            <div>
+                                <p class="font-semibold text-gray-900">Tampilannya Modern</p>
+                                <p class="text-gray-600 text-sm">UI/UX terkini yang menarik pengunjung</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-xl mt-1">✓</span>
+                            <div>
+                                <p class="font-semibold text-gray-900">Desainnya Responsif</p>
+                                <p class="text-gray-600 text-sm">Sempurna di semua perangkat dari smartphone hingga
+                                    desktop</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#harga">
+                        <button
+                            class="group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-sky-600 px-6 py-2 text-base font-semibold text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-sky-600/50 border border-white/20">
+                            <span class="text-lg">Lihat Paket Iklan Dan Website</span>
+                            <div
+                                class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
+                                <div class="relative h-full w-10 bg-white/20"></div>
+                            </div>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto text-center">
+
+            <h2 class="text-4xl md:text-5xl font-extrabold text-sky-600 mb-2">
+                Kenapa Harus Boostify?
+            </h2>
+            <p class="text-gray-900 mb-12">
+                Inilah alasan kenapa banyak klien puas dengan Boostify
+            </p>
+            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full border-2 border-sky-600 flex items-center justify-center mb-4 
+                            transition-all duration-300 ease-in-out 
+                            group-hover:shadow-lg group-hover:-translate-y-2 group-hover:border-0 
+                            group-hover:bg-sky-600">
+                        <svg class="w-8 h-8 text-sky-600 group-hover:text-white transition-colors duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-sky-600 mb-2">Free Copywriting</h3>
+                    <p class="text-gray-600 text-sm">
+                        Desain menarik saja tidak cukup. Kami bantu siapkan copywriting yang meyakinkan dan mampu
+                        meningkatkan konversi.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full border-2 border-sky-600 flex items-center justify-center mb-4 
+                            transition-all duration-300 ease-in-out 
+                            group-hover:shadow-lg group-hover:-translate-y-2 group-hover:border-0 
+                            group-hover:bg-sky-600">
+                        <svg class="w-8 h-8 text-sky-600 group-hover:text-white transition-colors duration-300"        
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"                      
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-sky-600 mb-2">
+                        Kualitas Terjamin
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Website kamu akan dirancang dengan standar profesional: cepat, mobile-friendly, dan
+                        SEO-ready.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full border-2 border-sky-600 flex items-center justify-center mb-4 
+                            transition-all duration-300 ease-in-out 
+                            group-hover:shadow-lg group-hover:-translate-y-2 group-hover:border-0 
+                            group-hover:bg-sky-600">
+                        <svg class="w-8 h-8 text-sky-600 group-hover:text-white transition-colors duration-300"        
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"                      
+                                         
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m4 4v10m0-2.828l4.098-2.049L20 12">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-sky-600 mb-2">
+                        Tinggal Terima Beres
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Mulai dari desain, isi konten, sampai setting domain, semuanya kami handle. Kamu tinggal
+                        terima jadi.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full border-2 border-sky-600 flex items-center justify-center mb-4 
+                            transition-all duration-300 ease-in-out 
+                            group-hover:shadow-lg group-hover:-translate-y-2 group-hover:border-0 
+                            group-hover:bg-sky-600">
+                        <svg class="w-8 h-8 text-sky-600 group-hover:text-white transition-colors duration-300"        
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"                                
+                                d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586M17 10v2a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2h-2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-sky-600 mb-2">
+                        Full Support
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Bingung atau ada kendala? Kami selalu siap bantu bahkan setelah website selesai dikerjakan.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-full text-sm font-semibold mb-4">
+                    Portofolio
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Portofolio Proyek Kami</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Lihat beberapa hasil karya terbaik dari kampanye Meta Ads dan website yang telah kami buat untuk
+                    klien-klien kami.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div
+                    class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <img src="1.png" alt="">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Campaign Crowdfunding 1#</h3>
+                        <p class="text-gray-600 mb-4">
+                            Akun iklan white list yang membawahi beberapa campaign dengan total anggaran 9,5 juta selama
+                            hampir 2 bulan</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400">2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <img src="2.png" alt="">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Campaign Crowdfunding 2#</h3>
+                        <p class="text-gray-600 mb-4">
+                            Akun iklan pertama kami yang membawahi beberapa campaign dengan total anggaran lebih dari
+                            200 juta selama hampir 6 bulan
+                        </p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400">2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <img src="image.png" alt="">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Landing Page Laundry</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sebuah website profil untuk mengenalkan sebuah usaha laundry.
+                        </p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="harga" class="py-20 md:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-sky-100 text-sky-600 rounded-full text-sm font-semibold mb-4">
+                    Harga
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Paket Harga Kami</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Semua paket dilengkapi dengan dukungan
+                    customer service 24/7.
+                </p>
+            </div>
+
+            <!-- Pricing Tabs -->
+            <div class="flex justify-center gap-4 mb-12">
+                <button @click="pricingType = 'meta'"
+                    :class="pricingType === 'meta' ? 'bg-sky-600 text-white' : 'border-2 border-sky-600 text-sky-600 hover:bg-sky-50'"
+                    class="px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Meta Ads
+                </button>
+                <button @click="pricingType = 'website'"
+                    :class="pricingType === 'website' ? 'bg-sky-600 text-white' : 'border-2 border-sky-600 text-sky-600 hover:bg-sky-50'"
+                    class="px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Website
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Meta Ads Pricing Cards -->
+                <div x-show="pricingType === 'meta'"
+                    class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+                    <p class="text-gray-600 mb-6">Cocok untuk UMKM baru</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-sky-600">Rp 1 jt</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Budget iklan Rp 1-2 juta</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Durasi iklan 2 minggu</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Laporan detail mingguan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Evaluasi strategi</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.link/zjo1b2" target="_blank">
+                        <button
+                            class="w-full px-6 py-3 border-2 border-sky-600 text-sky-600 rounded-lg font-semibold hover:bg-sky-50 transition-colors">
+                            <i class="fa-solid fa-cart-shopping mr-2"></i>Pilih Paket
+                        </button>
+                    </a>
+                </div>
+
+                <div x-show="pricingType === 'meta'"
+                    class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-sky-600 relative md:scale-105">
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-sky-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        POPULER
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 mt-2">Professional</h3>
+                    <p class="text-gray-600 mb-6">Untuk bisnis berkembang</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-sky-600">Rp 2 jt</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Budget iklan Rp 3-4 juta</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Durasi iklan 1 bulan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Laporan detail mingguan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Evaluasi strategi</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.link/zjo1b2" target="_blank">
+                        <button
+                            class="w-full px-6 py-3 bg-sky-600 text-white rounded-lg font-semibold hover:bg-sky-700 transition-colors">
+                            <i class="fa-solid fa-cart-shopping mr-2"></i>Pilih Paket
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Website Pricing Cards -->
+                <div x-show="pricingType === 'website'"
+                    class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Landing Page</h3>
+                    <p class="text-gray-600 mb-6">Website sederhana</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-sky-600">Rp 1 jt</span>
+                        <span class="text-gray-600">sekali bayar</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">1-5 halaman</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Mobile responsive</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Form kontak basic</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Hosting 1 tahun</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.link/zjo1b2" target="_blank">
+                        <button
+                            class="w-full px-6 py-3 border-2 border-sky-600 text-sky-600 rounded-lg font-semibold hover:bg-sky-50 transition-colors">
+                            <i class="fa-solid fa-cart-shopping mr-2"></i>Pilih Paket
+                        </button>
+                    </a>
+                </div>
+
+                <div x-show="pricingType === 'website'"
+                    class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-sky-600 relative md:scale-105">
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-sky-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        POPULER
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 mt-2">Business</h3>
+                    <p class="text-gray-600 mb-6">Website profesional</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-sky-600">Rp 3 jt</span>
+                        <span class="text-gray-600">sekali bayar</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">5-15 halaman</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">SEO optimized</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Contact form advanced</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Dashboard admin</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-sky-600 font-bold">✓</span>
+                            <span class="text-gray-700">Support 3 bulan gratis</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.link/zjo1b2" target="_blank">
+                        <button
+                            class="w-full px-6 py-3 bg-sky-600 text-white rounded-lg font-semibold hover:bg-sky-700 transition-colors">
+                            <i class="fa-solid fa-cart-shopping mr-2"></i>Pilih Paket
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-20 md:py-32 bg-cover bg-center bg-no-repeat text-white"
+        style="background-image: url('cta.png');">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-lg">Siap Mengembangkan Bisnis Anda?
+            </h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Silahkan hubungi kami untuk konsultasi lebih lanjut!
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="https://wa.link/zjo1b2" target="_blank">
+                    <button
+                        class="group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-sky-600 px-6 py-2 text-base font-semibold text-white transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-sky-600/50 border border-white/20">
+                        <span class="text-lg">Hubungi Whatsapp</span>
+                        <div
+                            class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]">
+                            <div class="relative h-full w-10 bg-white/20"></div>
+                        </div>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div x-data="{ show: false }" x-init="
+        window.addEventListener('scroll', () => {
+            show = window.scrollY > 200;
+        })
+    ">
+        <button x-show="show" @click="window.scrollTo({ top: 0, behavior: 'smooth' })" x-transition.duration.300ms
+            class="fixed bottom-6 left-6 cursor-pointer bg-sky-700 px-3 py-2 rounded-full 
+                    text-white tracking-wider shadow-xl animate-bounce hover:animate-none
+                    z-50">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <a href="https://wa.link/zjo1b2" target="_blank">
+        <button class="group w-12 hover:w-44 h-12 hover:bg-green-400 
+            fixed bottom-6 right-6  
+            bg-green-500 rounded text-neutral-50 duration-500 
+            before:duration-500 before:hover:500 font-bold 
+            flex justify-start gap-2 items-center p-2 pr-6 
+            before:absolute before:-z-10 before:left-8 before:hover:left-40 
+            before:w-6 before:h-6 before:bg-green-500 before:hover:bg-green-400 
+            before:rotate-45 shadow-xl">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+            <span class="origin-left inline-flex duration-100 group-hover:duration-300 
+                group-hover:delay-500 opacity-0 group-hover:opacity-100 
+                px-1 transform scale-x-0 group-hover:scale-x-100 
+                transition-all text-sm">
+                Just Call Me!
+            </span>
+        </button>
+    </a>
+
+    <footer class="bg-white text-gray-900 py-6 px-4">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="flex items-center justify-between">
+
+                <div class="text-sm">
+                    &copy; 2025 Boostify, Inc. All rights reserved.
+                </div>
+
+                <div class="flex space-x-4">
+                    <div class="group relative inline-block">
+                        <a href="https://www.instagram.com/_hbbrhmn.ofc/" target="_blank">
+                            <button class="focus:outline-none hover:text-pink-500">
+                                <i class="fa-brands fa-instagram md:text-2xl"></i>
+                            </button>
+                        </a>
+                        <span
+                            class="absolute -top-14 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-sm font-bold text-white bg-gray-900 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Instagram</span>
+                    </div>
+
+                    <div class="group relative inline-block">
+                        <a href="https://wa.link/zjo1b2" target="_blank">
+                            <button class="focus:outline-none hover:text-green-500">
+                                <i class="fa-brands fa-whatsapp md:text-2xl"></i>
+                            </button>
+                        </a>
+                        <span
+                            class="absolute -top-14 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-sm font-bold text-white bg-gray-900 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">WhatsApp</span>
+                    </div>
+
+                    <div class="group relative inline-block">
+                        <a href="https://www.tiktok.com/@hbbrrhmn_07?lang=id-ID" target="_blank">
+                            <button class="focus:outline-none hover:text-sky-700">
+                                <i class="fa-brands fa-tiktok md:text-2xl"></i>
+                            </button>
+                        </a>
+                        <span
+                            class="absolute -top-14 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-sm font-bold text-white bg-gray-900 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Tiktok</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <script>
+        (function () {
+            const texts = [
+                "Digital Marketing",
+                "High ROAS",
+                "Optimasi Website"
+            ];
+
+            // konfigurasi kecepatan (ms)
+            const typingSpeed = 90;    // ketik per karakter
+            const erasingSpeed = 50;   // hapus per karakter
+            const delayAfter = 1500;   // jeda setelah selesai mengetik tiap teks
+            const delayBefore = 500;   // jeda sebelum mulai menghapus
+
+            const typedTextEl = document.getElementById('typed-text');
+
+            let textIndex = 0;
+            let charIndex = 0;
+            let isErasing = false;
+
+            function typeLoop() {
+                const current = texts[textIndex];
+                if (!isErasing) {
+                    // mengetik
+                    typedTextEl.textContent = current.substring(0, charIndex + 1);
+                    charIndex++;
+
+                    if (charIndex === current.length) {
+                        // selesai mengetik -> tunggu lalu mulai menghapus
+                        isErasing = true;
+                        setTimeout(typeLoop, delayAfter);
+                    } else {
+                        setTimeout(typeLoop, typingSpeed);
+                    }
+                } else {
+                    // menghapus
+                    typedTextEl.textContent = current.substring(0, charIndex - 1);
+                    charIndex--;
+
+                    if (charIndex === 0) {
+                        // selesai menghapus -> pindah ke teks berikutnya
+                        isErasing = false;
+                        textIndex = (textIndex + 1) % texts.length;
+                        setTimeout(typeLoop, delayBefore);
+                    } else {
+                        setTimeout(typeLoop, erasingSpeed);
+                    }
+                }
+            }
+
+            // mulai loop setelah DOM siap
+            document.addEventListener('DOMContentLoaded', function () {
+                // jika ingin memulai tanpa delay: langsung panggil typeLoop()
+                setTimeout(typeLoop, 500);
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
