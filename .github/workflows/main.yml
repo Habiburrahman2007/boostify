@@ -1,31 +1,22 @@
-name: 🚀 Deploy ke CPanel Subdomain
+name: 🚀 Deploy via FTP
 
 on:
   push:
     branches:
       - master
-  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Upload files to cPanel subdomain folder
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          port: 21
-          local-dir: ./
-          server-dir: /domains/boostify.vibedev.my.id/public_html/
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git/**
-            **/.github/**
-            **/node_modules/**
+    - name: Upload via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.4
+      with:
+        server: "151.243.222.70"
+        username: "Boostify@vibedev.my.id"
+        password: "${{ secrets.FTP_PASSWORD }}"
+        server-dir: "/boositfy.vibedev.my.id/public_html/"
