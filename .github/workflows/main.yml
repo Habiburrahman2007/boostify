@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy via FTP to subdomain
 
     steps:
       - name: Checkout repository
@@ -23,16 +23,9 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./
-          server-dir: ./      # ⬅️ biarkan relatif saja
+          server-dir: /domains/boostify.vibedev.my.id/public_html
           dangerous-clean-slate: false
           exclude: |
             **/.git/**
-            **/.git*/**
             **/.github/**
-            **/.gitignore
-            **/.gitattributes
-            **/.gitmodules
             **/node_modules/**
-            .git/**
-            .github/**
-            node_modules/**
