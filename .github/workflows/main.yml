@@ -23,7 +23,7 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./
-          server-dir: /domains/boostify.vibedev.my.id/public_html
+          server-dir: /domains/boostify.vibedev.my.id/public_html/
           dangerous-clean-slate: false
           exclude: |
             **/.git/**
